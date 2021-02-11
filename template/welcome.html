@@ -1,0 +1,45 @@
+{% block content %} 
+<div>
+    <div>
+    {% if user.is_authenticated %}
+    <h1>Welcome {{user.username}} </h1>
+    <li class="nav-item">
+        <a class="nav-link" href="/logout">Logout</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/post">addpost</a>
+      </li>
+      <div>
+        <form method="GET" action="/search">
+          {{ search }}                  
+          <button  type="submit">search</button>
+        </form>
+      </div>
+      {% for post in posts  %}
+      <div>
+        {{ post.title }}
+      </div>
+      <div>
+        <img src="{{ post.image.url}}" alt="{{ post.title }} " width="50" height="60">
+      </div>
+      <div>
+        {{ post.body }}
+      </div>
+      <div>
+        {% if post.public  %}
+        <b>Public</b>
+        {% else   %}
+        <b>Private</b>
+      </div>
+        {% endif %}
+        {% endfor %}
+      </div>
+      {% else %}
+
+      <li class="nav-item">
+        <a class="nav-link" href="/">Login</a>
+      </li>
+
+      {% endif %}
+</div>
+{% endblock %}

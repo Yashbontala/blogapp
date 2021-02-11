@@ -1,0 +1,13 @@
+{% block content %}      
+
+<div >
+  <h1>Add blog</h1>
+  <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %} 
+    {{ form.as_p }}
+    <button  type="submit">add blog</button>
+  </form>
+  <p class="text-center">Don't have an account? <a href="/welcome">go back to home</a>.</p>
+</div>
+
+{% endblock %}

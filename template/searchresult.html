@@ -1,0 +1,27 @@
+{% block content %} 
+<div>
+    {%for post in object_list%}
+    <div>
+        {{post.author}}
+    </div>
+    <div>
+        {{ post.title }}
+      </div>
+      
+      <div>
+        <img src="{{ post.image.url}}" alt="{{ post.title }} " width="50" height="60">
+      </div>
+      <div>
+        {{ post.body }}
+      </div>
+      <div>
+        {% if post.public  %}
+        <b>Public</b>
+        {% else   %}
+        <b>Private</b>
+      </div>
+        {% endif %}
+        {% endfor %}
+      </div>
+</div>
+{% endblock %}
