@@ -17,10 +17,10 @@
       </div>
       {% for post in posts  %}
       <div>
-        {{ post.title }}
+      <h2>  {{ post.title }}</h2>
       </div>
       <div>
-        <img src="{{ post.image.url}}" alt="{{ post.title }} " width="50" height="60">
+        <img src="{{ post.image.url}}" alt="{{ post.title }} " width="200" height="150">
       </div>
       <div>
         {{ post.body }}

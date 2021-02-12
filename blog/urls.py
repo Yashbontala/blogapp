@@ -2,11 +2,10 @@ from django.urls import path
 from . import views
 from .views import  CreatePostView,WelcomePageView,SearchUserView
 from django.conf.urls import   url
-
+from .forms import NewUserForm
 
 app_name = "main" 
-
-                                                                             
+                                                                         
 
 
 urlpatterns = [
