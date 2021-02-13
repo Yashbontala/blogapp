@@ -1,27 +1,41 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
 {% block content %} 
-<div>
+<div class="post">
+  <div style="text-align: center;">
+    <div style="width: 500px; margin: 0 auto;">
     {%for post in object_list%}
     <div>
-        {{post.author}}
+       <h1> {{post.author}}</h1>
     </div>
-    <div>
-      <h2>  {{ post.title }}</h2>
-      </div>
+ 
+      <h2><a href="#"> {{ post.title }}</a></h2>
+     
       
       <div>
-        <img src="{{ post.image.url}}" alt="{{ post.title }} " width="200" height="150">
+        <a href="#" class="post-thumbnail"><img src="{{ post.image.url}}" alt="{{ post.title }} " width="200" height="150"></a>
       </div>
-      <div>
+      <p>
         {{ post.body }}
-      </div>
-      <div>
+      </p>
+      <div class="post-info">
+  
         {% if post.public  %}
-        <b>Public</b>
+        <ul></ul>
+        <li class="category">Public</li>
+        </ul>
         {% else   %}
-        <b>Private</b>
+        <ul></ul>
+        <li class="category">Private</li>
+        </ul>
       </div>
         {% endif %}
         {% endfor %}
       </div>
+      </div>
+      </div>
 </div>
 {% endblock %}
+</html>
